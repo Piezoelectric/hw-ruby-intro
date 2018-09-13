@@ -3,12 +3,10 @@
 # Part 1
 
 def sum arr
-  # YOUR CODE HERE
   return arr.sum #This is the copout answer but hey, it's supported in 2.4
 end
 
 def max_2_sum arr
-  # YOUR CODE HERE
   arr = arr.sort
   arr = arr.reverse #Easiest way to get max 2 elements: sort the arr
   return arr[0,2].sum #Start at indx 0, retrieve 2 elements
@@ -23,7 +21,6 @@ end
 # Part 2
 
 def hello(name)
-  # YOUR CODE HERE
   return "Hello, " + name
 end
 
@@ -50,17 +47,22 @@ def binary_multiple_of_4? s
     return sInt % 4 ==0
   end
 end
-
-=begin
-print(binary_multiple_of_4? "1010")
-print(binary_multiple_of_4? "0100")
-print(binary_multiple_of_4? "0000")
-print(binary_multiple_of_4? "a")
-print(binary_multiple_of_4? "")
-=end
-
 # Part 3
 
 class BookInStock
-# YOUR CODE HERE
+  def initialize(isbn, price)
+    if isbn == "" or price <= 0
+      raise ArgumentError
+    end
+    @isbn = isbn
+    @price = price
+  end
+  
+  attr_accessor :isbn
+  attr_accessor :price
+  
+  def price_as_string()
+    shortPrice = sprintf('%.2f', @price)
+    return "$" + shortPrice.to_s
+  end
 end
