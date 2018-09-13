@@ -24,15 +24,40 @@ end
 
 def hello(name)
   # YOUR CODE HERE
+  return "Hello, " + name
 end
 
 def starts_with_consonant? s
-  # YOUR CODE HERE
+  sLower = s.downcase
+  firstChar = sLower[0]
+  return (['b','c','d','f','g',
+  'h','j','k','l','m','n','o','p',
+  'q','r','s','t','v','w','x','y','z'].include? firstChar)
 end
 
 def binary_multiple_of_4? s
-  # YOUR CODE HERE
+  sLower = s.downcase
+  if sLower =~ /[2-9]+/ #contains digits 2-9
+    #print("2-9 branch")
+    return false
+  elsif sLower =~ /.*[a-z]+.*/ #contains chars
+    #print("alfanum branch")
+    return false
+  elsif sLower == ""
+    return false
+  else #valid binary, try multiple of 4
+    sInt = sLower.to_i
+    return sInt % 4 ==0
+  end
 end
+
+=begin
+print(binary_multiple_of_4? "1010")
+print(binary_multiple_of_4? "0100")
+print(binary_multiple_of_4? "0000")
+print(binary_multiple_of_4? "a")
+print(binary_multiple_of_4? "")
+=end
 
 # Part 3
 
